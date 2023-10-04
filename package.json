@@ -14,8 +14,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nuxtjs/google-fonts": "^3.0.2",
     "core-js": "^3.25.3",
     "nuxt": "^2.15.8",
+    "three": "^0.156.1",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10"

@@ -14,7 +14,16 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Open+Sans&display=swap' }
+    ],
+    script: [
+      {
+        src: 'https://unpkg.com/@splinetool/viewer@0.9.463/build/spline-viewer.js',
+        type: 'module'
+      }
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -35,8 +44,15 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: [
+    '@nuxtjs/google-fonts'
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  googleFonts: {
+    families: {
+      'Bebas+Neue': true
+    }
+  },
 }
