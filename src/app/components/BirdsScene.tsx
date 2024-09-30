@@ -9,7 +9,7 @@ function BirdsScene() {
   return (
     <Canvas
       style={{ height: '100vh', background: '#f0f0f0' }}
-      camera={{ position: [0, 0, 600], fov: 75 }}
+      camera={{ position: [0, 0, 300], fov: 75 }} // Alejar la cámara si es necesario
     >
       <ambientLight intensity={0.8} />
       <pointLight position={[10, 10, 10]} />

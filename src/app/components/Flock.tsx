@@ -7,34 +7,28 @@ import Boid from './Boid';
 import Bird from './Bird';
 
 function Flock() {
-  const bounds = 250; // Límites de la escena
+  const bounds = 250; // Radio de la esfera
+  const center = new THREE.Vector3(0, 0, 0); // Centro de la esfera
   const [boids] = useState(() => {
     const initialBoids: { boid: Boid; size: number }[] = [];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 200; i++) {
       const position = new THREE.Vector3(
-        Math.random() * bounds * 2 - bounds,
-        Math.random() * bounds * 2 - bounds,
-        Math.random() * bounds * 2 - bounds
+        (Math.random() * 100) - 50,
+        (Math.random() * 100) - 50,
+        (Math.random() * 100) + 50
       );
       const boid = new Boid(position);
-      const size = Math.random() * 0.5 + 0.75; // Tamaño entre 0.75 y 1.25
+      const size = Math.random() * 1.0 + 2.0; // Tamaño entre 2.0 y 3.0
       initialBoids.push({ boid, size });
     }
     return initialBoids;
   });
 
-  const target = new THREE.Vector3(0, 0, 0); // Centro de la escena
-
   useFrame(() => {
     boids.forEach(({ boid }) => {
       boid.flock(boids.map(b => b.boid));
-
-      // Añadir atracción hacia el objetivo
-      const attraction = boid.seek(target).multiplyScalar(0.01);
-      boid.applyForce(attraction);
-
       boid.update();
-      boid.borders(bounds);
+      boid.boundaries(center, bounds);
     });
   });
 

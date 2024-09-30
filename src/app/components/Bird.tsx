@@ -23,20 +23,21 @@ const Bird = ({ boid, size }: BirdProps) => {
       Object.values(actions).forEach(action => {
         if (action) {
           action.play();
-          action.timeScale = 0.5; // Reduce la velocidad de la animación a la mitad
+          action.timeScale = 1; // Reducir la velocidad de la animación a la mitad
         }
       });
     }
   }, [actions]);
 
-  useFrame(({ clock }) => {
+  useEffect(() => {
     if (ref.current) {
-      // Actualizar posición con un movimiento vertical ondulatorio
-      const time = clock.getElapsedTime();
-      const verticalOffset = Math.sin(time * 5 + boid.position.x * 0.1) * 2;
-      ref.current.position.copy(
-        boid.position.clone().add(new THREE.Vector3(0, verticalOffset, 0))
-      );
+      ref.current.rotation.y = Math.PI; // Asegurar que el modelo apunte en la dirección correcta
+    }
+  }, []);
+
+  useFrame(() => {
+    if (ref.current) {
+      ref.current.position.copy(boid.position);
 
       // Orientar el ave en la dirección de su velocidad
       const velocity = boid.velocity.clone().normalize();
