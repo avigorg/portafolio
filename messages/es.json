@@ -1,6 +1,17 @@
 {
-    "HomePage": {
-      "title": "¡Hola mundo!"
-    }
+  "HomePage": {
+    "title": "¡Hola mundo!"
+  },
+  "Menu": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+  "Hero": {
+    "line1": "Haz",
+    "line2": "tus",
+    "line3": "ideas",
+    "line4": "volar"
   }
-  
+}

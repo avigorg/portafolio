@@ -1,13 +1,17 @@
-import {useTranslations} from 'next-intl';
-import BirdsScene from '../components/birds-animation/BirdsScene';
-import Menu from '../components/layout/Menu';
+import { useTranslations } from 'next-intl';
+import BirdsScene from '../../components/birds-animation/BirdsScene';
+import Menu from '../../components/layout/Menu';
+import HeroSection from '../../components/hero-section/HeroSection';
 
 export default function HomePage() {
   const t = useTranslations('HomePage');
-  return  (
+  return (
     <main>
       <Menu />
-      <BirdsScene />
+      <div className="relative h-screen w-full">
+        <BirdsScene />
+        <HeroSection />
+      </div>
     </main>
-  );;
+  );
 }

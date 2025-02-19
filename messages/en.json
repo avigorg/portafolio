@@ -1,5 +1,17 @@
 {
-    "HomePage": {
-      "title": "Hello world!"
-    }
+  "HomePage": {
+    "title": "Hello world!"
+  },
+  "Menu": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "line1": "Let",
+    "line2": "Your",
+    "line3": "Ideas",
+    "line4": "Fly"
   }
+}
